@@ -74,3 +74,13 @@ void DoubleLinkedList::addNode() {
 		current->next->prev = newNode;		//step 6
 	current->next = newNode;			// step 7
 }
+
+bool DoubleLinkedList::search(int rollNo, Node** previous, Node** current) {
+	*previous = START;	// step 1.a
+	*current = START;	// step 1.b
+	while (*current != NULL && rollNo != (*current)->noMhs) {	//step 1c
+		*previous = *current;	//step 1d
+		*current = (*current)->next;	//step 1e
+	}
+	return (*current != NULL);
+}
